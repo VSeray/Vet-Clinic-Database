@@ -27,7 +27,7 @@ INSERT INTO animals (
         '2018-11-15',
         2,
         true,
-        8
+        8.0
         );
 
 --Animal: His name is Pikachu. He was born on Jan 7th, 2021, and currently weighs 15.04kg. He was not neutered and he has tried to escape once.
@@ -57,5 +57,5 @@ INSERT INTO animals (
         '2017-5-12',
         5,
         true,
-        11
+        11.0
         );
