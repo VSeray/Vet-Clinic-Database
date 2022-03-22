@@ -39,4 +39,4 @@ ALTER TABLE animals
     ADD species_id int,
     ADD CONSTRAINT species_id FOREIGN KEY(species_id) REFERENCES species(id);
 
-ALTER TABLE animals ADD owners_id int, ADD CONSTRAINTS owners_id FOREIGN KEY(owners_id) REFERENCES owners(id);
+ALTER TABLE animals ADD owners_id int, ADD CONSTRAINT owners_id FOREIGN KEY(owners_id) REFERENCES owners(id);
