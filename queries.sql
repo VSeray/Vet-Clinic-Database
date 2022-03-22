@@ -24,37 +24,22 @@ SELECT * from animals WHERE NOT name='Gabumon';
 --Find all animals with a weight between 10.4kg and 17.3kg (including the animals with the weights that equals precisely 10.4kg or 17.3kg)
 SELECT * from animals WHERE weight_kg >= 10.4 AND weight_kg <= 17.3;
 
-BEGIN;
-UPDATE animals SET species='unspecified';
-SELECT * FROM animals;
-ROLLBACK;
-SELECT * FROM animals;
-UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
+--Query and Update animals table
 
-SELECT * FROM animals;
-UPDATE animals SET species='pokemon' WHERE species IS NULL;
-SELECT * FROM animals;
-COMMIT;
-BEGIN;
-DELETE FROM animals;
-ROLLBACK;
-COMMIT; 
-SELECT * FROM animals;
-BEGIN;
-DELETE FROM animals WHERE date_of_birth > '01-01-2022';
-SELECT * FROM animals;
-SAVEPOINT deleted_ditto;
-UPDATE animals SET weight_kg = -1 * weight_kg;
-SELECT * FROM animals;
-ROLLBACK TO deleted_ditto;
-SELECT * FROM animals;
-UPDATE animals SET weight_kg = -1 * weight_kg WHERE weight_kg < 0;
---above Update will not works, explanations in PR
-COMMIT;
-SELECT COUNT(*) FROM animals;
-SELECT COUNT(escape_attempts) FROM animals WHERE escape_attempts = 0;
+--How many animals are there?
+SELECT COUNT(name) FROM animals;
+
+--How many animals have never tried to escape?
+SELECT COUNT(name) FROM animals WHERE escape_attempts = 0;
+
+--What is the average weight of animals?
 SELECT AVG(weight_kg) FROM animals;
-SELECT MAX(escape_attempts) FROM animals;
---neutered Boarmon with 7 escape_attempts
 
-SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth >= '01-01-1990' AND date_of_birth <= '12-31-2000' GROUP BY species;
+--Who escapes the most, neutered or not neutered animals?
+SELECT name, escape_attempts FROM animals WHERE escape_attempts = (SELECT MAX(escape_attempts) FROM animals);
+
+--What is the minimum and maximum weight of each type of animal?
+SELECT species, MIN(weight_kg), MAX(weight_kg) FROM animals GROUP BY species;
+
+--What is the average number of escape attempts per animal type of those born between 1990 and 2000?
+SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth>='1990-1-1' AND date_of_birth<'2000-12-31' GROUP BY species;
