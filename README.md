@@ -22,6 +22,13 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 - LinkedIn: [Linkdin](https://www.linkedin.com/in/vana-seraydarian-936687191/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BNyso4dw6Tz6UBL%2Fqkjvtvw%3D%3D)
 
+👤 **Amo Parker Prince**
+
+- GitHub: [github](https://github.com/mrparkersson)
+
+- LinkedIn: [Linkdin](https://www.linkedin.com/in/amopp/)
+
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
