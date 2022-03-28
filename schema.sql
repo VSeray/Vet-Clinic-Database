@@ -64,3 +64,12 @@ CREATE TABLE visits (
     CONSTRAINT fk_animals FOREIGN KEY(animals_id) REFERENCES animals(id),
     CONSTRAINT fk_vets FOREIGN KEY(vets_id) REFERENCES vets(id)
 );
+
+-- Add an email column to your owners table
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+CREATE INDEX animals_id  ON visits(animals_id);
+CREATE INDEX vets_id  ON visits(vets_id);
+CREATE INDEX owners_id  ON owners(email DESC);
+
+
