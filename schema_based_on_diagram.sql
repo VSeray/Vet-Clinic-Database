@@ -37,7 +37,7 @@ CREATE INDEX medical_histories_treatments_medical_history_id ON medical_historie
 CREATE TABLE invoices(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   total_amount decimal,
-  generated_amount TIMESTAMP,
+  generated_at TIMESTAMP,
   payed_at TIMESTAMP,
   medical_history_id INT,
 
@@ -55,7 +55,9 @@ CREATE TABLE invoice_items(
   treatment_id INT,
 
   CONSTRAINT fk_invoice_id FOREIGN KEY (invoice_id) REFERENCES invoices(id)
+  CONSTRAINT fk_treatment_id FOREIGN KEY (treatment_id) REFERENCES treatment(id)
 );
 
 CREATE INDEX invoice_items_invoice_id ON invoice_items(invoice_id);
+CREATE INDEX invoice_items_treatment_id ON invoice_items(treatment_id);
 
